@@ -33,6 +33,7 @@ const SubscriptionPage = async () => {
                 <div className="text-2xl text-muted-foreground">/mês</div>
               </div>
             </CardHeader>
+
             <CardContent className="space-y-6 py-8">
               <div className="flex items-center gap-2">
                 <CheckIcon className="text-primary" />
@@ -63,6 +64,7 @@ const SubscriptionPage = async () => {
                 <div className="text-2xl text-muted-foreground">/mês</div>
               </div>
             </CardHeader>
+
             <CardContent className="space-y-6 py-8">
               <div className="flex items-center gap-2">
                 <CheckIcon className="text-primary" />
