@@ -12,6 +12,7 @@ interface LastTransactionsProps {
 }
 
 const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
+  /* Adiciona cores dinamicamentes */
   const getAmountColor = (transaction: Transaction) => {
     if (transaction.type === TransactionType.EXPENSE) {
       return "text-red-500";
@@ -21,6 +22,7 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
     }
     return "text-blue-500";
   };
+
   const getAmountPrefix = (transaction: Transaction) => {
     if (transaction.type === TransactionType.DEPOSIT) {
       return "+";

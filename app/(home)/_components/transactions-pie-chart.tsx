@@ -16,15 +16,15 @@ import PercentageItem from "./percentage-item";
 
 const chartConfig = {
   [TransactionType.INVESTMENT]: {
-    label: "Investido R$ ",
+    label: "Investido ",
     color: "#1d4ed8",
   },
   [TransactionType.DEPOSIT]: {
-    label: "Receita R$ ",
+    label: "Receita ",
     color: "#55B02E",
   },
   [TransactionType.EXPENSE]: {
-    label: "Despesas R$ ",
+    label: "Despesas ",
     color: "#E93030",
   },
 } satisfies ChartConfig;

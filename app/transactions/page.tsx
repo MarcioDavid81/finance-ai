@@ -9,10 +9,13 @@ import { ScrollArea } from "../_components/ui/scroll-area";
 import { canUserAddTransaction } from "../_data/can-user-add-transaction";
 
 const TransactionsPage = async () => {
+  /* Função para redirecionar caso o usuário não esteja auntenticado */
   const { userId } = await auth();
   if (!userId) {
     redirect("/login");
   }
+
+  /* Busca as transações do usuário */
   const transactions = await db.transaction.findMany({
     where: {
       userId,
@@ -21,7 +24,10 @@ const TransactionsPage = async () => {
       date: "desc",
     },
   });
+
+  /* Verifica se o usuário pode adicionar transações */
   const userCanAddTransaction = await canUserAddTransaction();
+
   return (
     <>
       <Navbar />

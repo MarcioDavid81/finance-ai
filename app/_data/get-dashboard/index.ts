@@ -15,6 +15,8 @@ export const getDashboard = async (month: string) => {
       lt: new Date(`2024-${month}-31`),
     },
   };
+
+  /* Total de depósitos */
   const depositsTotal = Number(
     (
       await db.transaction.aggregate({
@@ -23,6 +25,8 @@ export const getDashboard = async (month: string) => {
       })
     )?._sum?.amount,
   );
+
+  /* Total de investimentos */
   const investmentsTotal = Number(
     (
       await db.transaction.aggregate({
@@ -31,6 +35,8 @@ export const getDashboard = async (month: string) => {
       })
     )?._sum?.amount,
   );
+
+  /* Total de despesas */
   const expensesTotal = Number(
     (
       await db.transaction.aggregate({
@@ -39,7 +45,11 @@ export const getDashboard = async (month: string) => {
       })
     )?._sum?.amount,
   );
+
+  /* Saldo */
   const balance = depositsTotal - investmentsTotal - expensesTotal;
+
+  /* Porcent de cada tipo de transação */
   const transactionsTotal = Number(
     (
       await db.transaction.aggregate({
@@ -48,6 +58,8 @@ export const getDashboard = async (month: string) => {
       })
     )._sum.amount,
   );
+
+  /* Porcentagem de cada tipo de transação */
   const typesPercentage: TransactionPercentagePerType = {
     [TransactionType.DEPOSIT]: Math.round(
       (Number(depositsTotal || 0) / Number(transactionsTotal)) * 100,
@@ -59,6 +71,8 @@ export const getDashboard = async (month: string) => {
       (Number(investmentsTotal || 0) / Number(transactionsTotal)) * 100,
     ),
   };
+
+  /* Total de despesas por categoria */
   const totalExpensePerCategory: TotalExpensePerCategory[] = (
     await db.transaction.groupBy({
       by: ["category"],
@@ -77,6 +91,8 @@ export const getDashboard = async (month: string) => {
       (Number(category._sum.amount) / Number(expensesTotal)) * 100,
     ),
   }));
+
+  /* Últimas transações */
   const lastTransactions = await db.transaction.findMany({
     where,
     orderBy: { date: "desc" },
