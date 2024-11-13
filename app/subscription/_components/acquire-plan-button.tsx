@@ -5,6 +5,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { createStripeCheckout } from "../_actions/create-stripe-checkout";
+import { ShoppingCart } from "lucide-react";
 
 const AcquirePlanButton = () => {
   const { user } = useUser();
@@ -40,6 +41,7 @@ const AcquirePlanButton = () => {
       className="w-full rounded-full font-bold"
       onClick={handleAcquirePlanClick}
     >
+      <ShoppingCart className="mr-2" size={16} />
       Adquirir plano
     </Button>
   );
