@@ -21,15 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <ClerkProvider
-        appearance={{
-          baseTheme: dark,
-        }}
-      >
-        <body className={`${mulish.className} dark antialiased`}>
+      <body className={`${mulish.className} dark antialiased`}>
+        <ClerkProvider
+          appearance={{
+            baseTheme: dark,
+          }}
+        >
           <div className="flex h-full flex-col overflow-hidden">{children}</div>
-        </body>
-      </ClerkProvider>
+        </ClerkProvider>
+      </body>
       <Toaster />
     </html>
   );
