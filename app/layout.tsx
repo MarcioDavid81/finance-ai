@@ -29,8 +29,8 @@ export default function RootLayout({
         >
           <div className="flex h-full flex-col overflow-hidden">{children}</div>
         </ClerkProvider>
+        <Toaster />
       </body>
-      <Toaster />
     </html>
   );
 }
