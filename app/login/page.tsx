@@ -4,6 +4,12 @@ import { LogInIcon } from "lucide-react";
 import { SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Faça login ou crie uma conta no Finance AI.",
+};
 
 const LoginPage = async () => {
   const { userId } = await auth();

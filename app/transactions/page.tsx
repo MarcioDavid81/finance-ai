@@ -7,7 +7,12 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { ScrollArea } from "../_components/ui/scroll-area";
 import { canUserAddTransaction } from "../_data/can-user-add-transaction";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Transações",
+  description: "Veja um resumo das suas finanças.",
+};
 const TransactionsPage = async () => {
   /* Função para redirecionar caso o usuário não esteja auntenticado */
   const { userId } = await auth();

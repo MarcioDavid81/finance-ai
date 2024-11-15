@@ -6,6 +6,12 @@ import { CheckIcon, XIcon } from "lucide-react";
 import AcquirePlanButton from "./_components/acquire-plan-button";
 import { Badge } from "../_components/ui/badge";
 import { getCurrentMonthTransactions } from "../_data/get-currency-month-transactions";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Assinatura",
+  description: "Veja um resumo das suas finanças.",
+};
 
 const SubscriptionPage = async () => {
   const { userId } = await auth();

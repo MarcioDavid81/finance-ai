@@ -10,7 +10,11 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "Finance AI - O Seu Assistente Financeiro",
+  title: {
+    absolute: "",
+    default: "Finance AI",
+    template: "Finance AI - %s",
+  },
   description: "O Finance AI é o seu assistente financeiro pessoal.",
 };
 
